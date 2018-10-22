@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function init()
 {
   loginOrNewUser();
+  Controller.getAllCostumes();
+}
+
+function renderCostume()
+{
+  console.log("Im in render costume.");
 }
 
 function loginOrNewUser()
