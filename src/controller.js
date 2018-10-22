@@ -2,6 +2,7 @@ class Controller {
 
   // Check whether this var is available within each fetch method
   costumes_url: "http://localhost:3000/costumes",
+  users_url: "http://localhost:3000/users"
 
   // Event.target is used to get form params in all methods, this will likely change
 
@@ -76,6 +77,35 @@ class Controller {
 
     fetch(delete_url, {
       method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(json => console.log)
+  }
+
+  // Get request for a user and return if username exists
+  static getUser(event) {
+    let user = event.target
+    let get_url = `${this.users_url}/${user.id}`
+
+    fetch(get_url)
+    .then(res => res.json())
+    .then(json => console.log)
+  }
+
+  static postUser(event) {
+    let user = event.target
+
+    fetch(users_url, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "firstname": user.firstname,
+        "lastname": user.lastname,
+        "username": user.username
+      })
     })
     .then(res => res.json())
     .then(json => console.log)
