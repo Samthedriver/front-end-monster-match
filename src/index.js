@@ -52,10 +52,9 @@ function addNewUserBtnListener()
 {
   event.preventDefault();
   let container = document.getElementById('topContainer');
-  let loginBtn = event.currentTarget;
-  let newUserBtn = document.getElementById('newUserBtn');
+  let loginBtn = document.getElementById('loginBtn');
+  let newUserBtn = event.currentTarget;
   loginBtn.parentNode.removeChild(loginBtn);
-  debugger;
   newUserBtn.parentNode.removeChild(newUserBtn);
 
   let newUserForm = document.createElement('form');
@@ -79,7 +78,9 @@ function addNewUserBtnListener()
   newUserFormBtn.id ="newUserFormBtn"
   newUserFormBtn.type="submit"
   newUserFormBtn.value="Create User";
-  loginForm.appendChild(logzinInput);
-  loginForm.appendChild(loginFormBtn);
-  container.appendChild(loginForm);
+  newUserForm.appendChild(newUserFirstName);
+  newUserForm.appendChild(newUserLastName);
+  newUserForm.appendChild(newUserUserName);
+  newUserForm.appendChild(newUserFormBtn);
+  container.appendChild(newUserForm);
 }
