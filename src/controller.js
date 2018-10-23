@@ -59,7 +59,7 @@ class Controller {
         "user_id": costume.user_id,
         "gender": costume.gender,
         "size": costume.size,
-        "costume_type": costume.costume_type,
+        "category": costume.category,
         "spookiness": costume.spookiness,
         "theme": costume.theme,
         "parts": costume.parts,
