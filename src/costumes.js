@@ -1,6 +1,7 @@
 function renderCostume(obj)
 {
 
+
   console.log("Im in render costume.");
   console.log(obj);
   let bottomContainer = document.getElementById('bottomContainer');
@@ -101,34 +102,34 @@ function renderCostumeForm() {
 
 
   // CREATE TYPE DROPDOWN
-  let type = document.createElement('select')
-  type.id = "newCostumeType"
-  type.type = "select"
+  let category = document.createElement('select')
+  category.id = "newCostumeType"
+  category.type = "select"
   // Adding optional values (casual cosplay sexy funny scary)
-  let typeOption1 = document.createElement('option')
-  let typeOption2 = document.createElement('option')
-  let typeOption3 = document.createElement('option')
-  let typeOption4 = document.createElement('option')
-  let typeOption5 = document.createElement('option')
-  typeOption1.value = "casual"
-  typeOption1.innerText = "Casual"
-  typeOption2.value = "cosplay"
-  typeOption2.innerText = "Cosplay"
-  typeOption3.value = "sexy"
-  typeOption3.innerText = "Sexy"
-  typeOption4.value = "funny"
-  typeOption4.innerText = "Funny"
-  typeOption5.value = "scary"
-  typeOption5.innerText = "Scary"
+  let categoryOption1 = document.createElement('option')
+  let categoryOption2 = document.createElement('option')
+  let categoryOption3 = document.createElement('option')
+  let categoryOption4 = document.createElement('option')
+  let categoryOption5 = document.createElement('option')
+  categoryOption1.value = "casual"
+  categoryOption1.innerText = "Casual"
+  categoryOption2.value = "cosplay"
+  categoryOption2.innerText = "Cosplay"
+  categoryOption3.value = "sexy"
+  categoryOption3.innerText = "Sexy"
+  categoryOption4.value = "funny"
+  categoryOption4.innerText = "Funny"
+  categoryOption5.value = "scary"
+  categoryOption5.innerText = "Scary"
 
-  // Append options to type dropdown form
-  type.appendChild(typeOption1)
-  type.appendChild(typeOption2)
-  type.appendChild(typeOption3)
-  type.appendChild(typeOption4)
-  type.appendChild(typeOption5)
+  // Append options to category dropdown form
+  category.appendChild(categoryOption1)
+  category.appendChild(categoryOption2)
+  category.appendChild(categoryOption3)
+  category.appendChild(categoryOption4)
+  category.appendChild(categoryOption5)
 
-  form.appendChild(type)
+  form.appendChild(category)
 
 
 
