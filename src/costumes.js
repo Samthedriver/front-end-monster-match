@@ -1,6 +1,12 @@
-function renderCostume()
+function renderCostume(costume)
 {
   console.log("Im in render costume.");
+}
+
+function formSubmitBtnListener(event) {
+  form = event.target.parentNode
+  console.log(form)
+  debugger
 }
 
 function renderCostumeForm() {
@@ -224,8 +230,11 @@ function renderCostumeForm() {
 
 
   // CREATE SUBMIT BUTTON
+  // Hypothesis: No event listener needed, the form will follow the action attr
   let submitBtn = document.createElement('input')
   submitBtn.type = 'submit'
+  submitBtn.value = 'submit'
+  submitBtn.addEventListener('click', formSubmitBtnListener)
 
   form.appendChild(submitBtn)
 
