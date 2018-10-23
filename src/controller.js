@@ -2,7 +2,7 @@ class Controller {
 
   // Check whether this var is available within each fetch method
 
-  // costumes_url = "http://localhost:3000/api/v1/costumes"
+  // costumes_url = "http://localhost:3000/api/v1/ecostumes"
   // users_url = "http://localhost:3000/api/v1/users"
 
   // Event.target is used to get form params in all methods, this will likely change
@@ -33,7 +33,7 @@ class Controller {
         "user_id": costume.user_id,
         "gender": costume.gender,
         "size": costume.size,
-        "costume_type": costume.costume_type,
+        "category": costume.category,
         "spookiness": costume.spookiness,
         "theme": costume.theme,
         "parts": costume.parts,
