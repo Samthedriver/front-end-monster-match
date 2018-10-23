@@ -1,6 +1,25 @@
-function renderCostume()
+function renderCostume(obj)
 {
+
   console.log("Im in render costume.");
+  console.log(obj);
+  let bottomContainer = document.getElementById('bottomContainer');
+
+  let rowDiv = document.createElement('row');
+
+  let image = document.createElement('img');
+  image.src = obj['img_url'];
+
+  rowDiv.appendChild(image);
+
+  let infoCard = document.createElement('div');
+  infoCard.class = 'col';
+  infoCard.innerText = `${obj['name']}\ngender: ${obj['gender']}\nsize: ${obj['size']}\ntheme: ${obj['theme']}`;
+
+  rowDiv.appendChild(infoCard);
+
+  bottomContainer.appendChild(rowDiv);
+
 }
 
 function renderCostumeForm() {

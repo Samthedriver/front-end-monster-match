@@ -9,7 +9,7 @@ class Controller {
 
   // Any event passed in method call should be ignored
   static getAllCostumes(){
-    fetch("http://localhost:3000/costumes")
+    fetch("http://localhost:3000/api/v1/costumes")
     .then(res => res.json())
     .then(json => {
       json.forEach(obj => {
@@ -23,7 +23,7 @@ class Controller {
   static postCostume(event){
     let costume = event
 
-    fetch("http://localhost:3000/costumes", {
+    fetch("http://localhost:3000/api/v1/costumes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

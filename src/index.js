@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function init()
 {
   loginOrNewUser();
-  // Controller.getAllCostumes();
+  Controller.getAllCostumes();
+
 
   // Will remove costume form from init() after testing
-  renderCostumeForm()
+  renderCostumeForm();
 }
