@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function init()
 {
-  loginOrNewUser();
+  // loginOrNewUser();
   Controller.getAllCostumes();
 
 
