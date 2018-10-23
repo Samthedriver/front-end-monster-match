@@ -9,7 +9,7 @@ class Controller {
 
   // Any event passed in method call should be ignored
   static getAllCostumes(){
-    fetch("http://localhost:3000/api/v1costumes")
+    fetch("http://localhost:3000/api/v1/costumes")
     .then(res => res.json())
     .then(json => {
       json.forEach(obj => {
@@ -45,31 +45,31 @@ class Controller {
     .then(json => console.log)
   }
 
-  static patchCostume(event){
-    let costume = event.target
-    let patch_url = `${this.costumes_url}/${costume.id}`
-
-    fetch(patch_url, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        "user_id": costume.user_id,
-        "gender": costume.gender,
-        "size": costume.size,
-        "category": costume.category,
-        "spookiness": costume.spookiness,
-        "theme": costume.theme,
-        "parts": costume.parts,
-        "img_url": costume.img_url,
-        "name": costume.name
-      })
-    })
-    .then(res => res.json())
-    .then(json => console.log)
-  }
+  // static patchCostume(event){
+  //   let costume = event.target
+  //   let patch_url = `http://localhost:3000/api/v1/costumes/${costume.id}`
+  //
+  //   fetch(patch_url, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       "user_id": costume.user_id,
+  //       "gender": costume.gender,
+  //       "size": costume.size,
+  //       "category": costume.category,
+  //       "spookiness": costume.spookiness,
+  //       "theme": costume.theme,
+  //       "parts": costume.parts,
+  //       "img_url": costume.img_url,
+  //       "name": costume.name
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(json => console.log)
+  // }
   //
   // // Check that method resolves without requiring headers or body
   // static deleteCostume(event) {
