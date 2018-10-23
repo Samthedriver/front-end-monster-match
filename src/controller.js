@@ -45,6 +45,7 @@ class Controller {
     .then(json => console.log)
   }
 
+<<<<<<< HEAD
   // static patchCostume(event){
   //   let costume = event.target
   //   let patch_url = `http://localhost:3000/api/v1/costumes/${costume.id}`
@@ -70,6 +71,33 @@ class Controller {
   //   .then(res => res.json())
   //   .then(json => console.log)
   // }
+=======
+  static patchCostume(event){
+    let costume = event.target
+    let patch_url = `${this.costumes_url}/${costume.id}`
+
+    fetch(patch_url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        "user_id": costume.user_id,
+        "gender": costume.gender,
+        "size": costume.size,
+        "category": costume.category,
+        "spookiness": costume.spookiness,
+        "theme": costume.theme,
+        "parts": costume.parts,
+        "img_url": costume.img_url,
+        "name": costume.name
+      })
+    })
+    .then(res => res.json())
+    .then(json => console.log)
+  }
+>>>>>>> db906885818364f5b29be2888f68b4ea516b61d3
   //
   // // Check that method resolves without requiring headers or body
   // static deleteCostume(event) {

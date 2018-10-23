@@ -19,7 +19,7 @@ function addLoginBtnListener()
 {
   event.preventDefault();
 
-  let container = document.getElementById('bottomContainer');
+  let container = document.getElementById('topContainer');
   let loginBtn = event.currentTarget;
   let newUserBtn = document.getElementById('newUserBtn');
   loginBtn.parentNode.removeChild(loginBtn);
@@ -37,10 +37,43 @@ function addLoginBtnListener()
   loginFormBtn.id ="loginFormBtn"
   loginFormBtn.type="submit"
   loginFormBtn.value="Login";
+  loginFormBtn.addEventListener('click', addloginFormBtnListener);
 
   loginForm.appendChild(loginInput);
   loginForm.appendChild(loginFormBtn);
   container.appendChild(loginForm);
+}
+
+function addloginFormBtnListener()
+{
+  event.preventDefault();
+  let username = document.getElementById('login_input').value;
+  let container = document.getElementById('topContainer');
+
+  while(!(loginUser(username)))
+  {
+    alert('Username invalid, please enter a valid username.');
+  };
+
+  while(container.firstChild)
+  {
+    container.removeChild(container.firstChild);
+  };
+
+  displayUserOptions();
+
+}
+
+function loginUser()
+{
+  return true;
+}
+
+function displayUserOptions()
+{
+  let container = document.getElementById('topContainer');
+  container.innerText = "create costume/view your costumes/logout";
+
 }
 
 function addNewUserBtnListener()
