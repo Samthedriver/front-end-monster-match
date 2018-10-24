@@ -10,5 +10,5 @@ function init()
 
 
   // Will remove costume form from init() after testing
-  renderCostumeForm();
+
 }
