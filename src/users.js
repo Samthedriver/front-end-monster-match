@@ -33,11 +33,27 @@ function loginOrNewUser()
 function addLoginBtnListener()
 {
   event.preventDefault();
+  let welcomeDiv = document.getElementById('welcomeContainer');
+  // debugger;
+  // if(welcomeDiv.style.display === 'block')
+  // {
+     welcomeDiv.style.display = 'none';
+  // }
+  // else
+  // {
+  //
+  // }
+
   let container = document.getElementById('loginContainer');
-  while(container.firstChild)
-  {
-    container.removeChild(container.firstChild);
-  };
+  container.style.display = 'block';
+
+  // if(loginDivInit)
+  // {
+  //   container.style.display = 'block';
+  //   welcomeDiv.style.display = 'none';
+  //   document.getElementById('login_form').reset();
+  //   return;
+  // }
 
   let loginForm = document.createElement('form');
   loginForm.id="login_form";
@@ -50,6 +66,7 @@ function addLoginBtnListener()
 
   let loginFormBtn = document.getElementById('loginFormBtn');
   loginFormBtn.addEventListener('click', addloginFormBtnListener);
+  loginDivInit = true;
 
 }
 
@@ -58,28 +75,13 @@ function addloginFormBtnListener()
   event.preventDefault();
   document.getElementById('welcomeContainer').style.display = 'none';
   let username = document.getElementById('login_input').value;
-<<<<<<< HEAD
-  let container = document.getElementById('topContainer');
 
-  while(!(loginUser(username)))
-  {
-    alert('Username invalid, please enter a valid username.');
-  };
-
-  while(container.firstChild)
-  {
-    container.removeChild(container.firstChild);
-  };
-
-  displayUserOptions();
+  loginUser(username);
 
 }
 
-function loginUser()
+function loginUser(username)
 {
-
-  return true;
-=======
   let container = document.getElementById('loginContainer');
   console.log(username);
 
@@ -110,13 +112,17 @@ function loginUser()
 
         displayUserOptions();
       });
->>>>>>> 80ac813d7509460670ef9f530db5a3ea8d25d06f
 }
 
 function displayUserOptions()
 {
   document.getElementById('loginContainer').style.display = 'none';
   let container = document.getElementById('optionsContainer');
+  if(container.style.display === 'none')
+  {
+    container.style.display = 'block';
+    return;
+  }
 
   let rowDiv = document.createElement('div');
   rowDiv.innerHTML = `<div class="container">

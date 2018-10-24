@@ -1,6 +1,6 @@
-var costumes
-var users
 let loggedInUser = {};
+let loginDivInit = false;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
@@ -11,8 +11,5 @@ function init()
 {
   loginOrNewUser();
   Controller.getAllCostumes();
-
-
-  // Will remove costume form from init() after testing
 
 }
