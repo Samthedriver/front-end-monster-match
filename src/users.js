@@ -1,6 +1,6 @@
 function loginOrNewUser()
 {
-  let container = document.getElementById('topContainer');
+  let container = document.getElementById('welcomeContainer');
 
   let rowDiv = document.createElement('div');
 
@@ -33,7 +33,7 @@ function loginOrNewUser()
 function addLoginBtnListener()
 {
   event.preventDefault();
-  let container = document.getElementById('topContainer');
+  let container = document.getElementById('loginContainer');
   while(container.firstChild)
   {
     container.removeChild(container.firstChild);
@@ -56,8 +56,9 @@ function addLoginBtnListener()
 function addloginFormBtnListener()
 {
   event.preventDefault();
+  document.getElementById('welcomeContainer').style.display = 'none';
   let username = document.getElementById('login_input').value;
-  let container = document.getElementById('topContainer');
+  let container = document.getElementById('loginContainer');
   console.log(username);
 
   let found = false;
@@ -91,11 +92,9 @@ function addloginFormBtnListener()
 
 function displayUserOptions()
 {
-  let container = document.getElementById('topContainer');
-  while(container.firstChild)
-  {
-    container.removeChild(container.firstChild);
-  };
+  document.getElementById('loginContainer').style.display = 'none';
+  let container = document.getElementById('optionsContainer');
+
   let rowDiv = document.createElement('div');
   rowDiv.innerHTML = `<div class="container">
     <div class="row">
@@ -116,7 +115,7 @@ function displayUserOptions()
   createCostumeBtn.addEventListener('click', addCreateCostumeBtnListener);
 
   let logoutBtn = document.getElementById('logoutBtn');
-  createCostumeBtn.addEventListener('click', addLogoutBtnListener);
+  logoutBtn.addEventListener('click', addLogoutBtnListener);
 
 }
 
@@ -124,8 +123,9 @@ function addLogoutBtnListener()
 {
   event.preventDefault();
   loggedInUser = {};
-  let container = document.getElementById('topContainer');
-  container.style.display = "none";
+  console.log("in logout listener");
+  document.getElementById('optionsContainer').style.display = "none";
+  document.getElementById('welcomeContainer').style.display = "block";
 }
 
 function addCreateCostumeBtnListener()
@@ -137,7 +137,11 @@ function addCreateCostumeBtnListener()
 function addNewUserBtnListener()
 {
   event.preventDefault();
-  let container = document.getElementById('topContainer');
+
+  //hiding welcome Div
+  document.getElementById('welcomeContainer').style.display = 'none';
+
+  let container = document.getElementById('newUserContainer');
   let loginBtn = document.getElementById('loginBtn');
   let newUserBtn = event.currentTarget;
   loginBtn.parentNode.removeChild(loginBtn);
@@ -160,6 +164,14 @@ function addNewUserBtnListener()
 
   container.appendChild(newUserForm);
 
-  let newUserLoginBtn = document.getElementById('newUserFromBtn');
-  newUserFormBtn.addEventListener('click', addNewUserBtnListener);
+  let newUserFormBtn = document.getElementById('newUserFormBtn');
+  newUserFormBtn.addEventListener('click', addCreateNewUserBtnListener);
+}
+
+function addCreateNewUserBtnListener()
+{
+  //assuming username is unigue and
+  console.log('should attempt to post new user data');
+  document.getElementById('newUserContainer').style.display = 'none';
+  document.getElementById('optionsContainer').style.display = 'block';
 }
