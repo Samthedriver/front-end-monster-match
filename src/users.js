@@ -188,19 +188,19 @@ function addNewUserBtnListener()
   <div class="form-group">
     <input type="text" class="form-control" id="newUserUserName" placeholder="Username">
   </div>
-  <button type="submit" id="newUserFormBtn" class="btn btn-secondary">Create User</button>`;
+  <button type="button" id="newUserFormBtn" class="btn btn-secondary">Create User</button>`;
   container.appendChild(loginForm);
-
-  container.appendChild(newUserForm);
 
   let newUserFormBtn = document.getElementById('newUserFormBtn');
   newUserFormBtn.addEventListener('click', addCreateNewUserBtnListener);
+
 }
 
-function addCreateNewUserBtnListener()
+function addCreateNewUserBtnListener(event)
 {
-  //assuming username is unigue and
-  console.log('should attempt to post new user data');
+  event.preventDefault()
+  //assuming username is unique in DB and users global array
+  Controller.postUser(event)
   document.getElementById('newUserContainer').style.display = 'none';
   document.getElementById('optionsContainer').style.display = 'block';
 }

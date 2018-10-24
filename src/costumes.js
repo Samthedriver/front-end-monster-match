@@ -1,10 +1,6 @@
-function renderCostume(data)
+function renderCostume(obj)
 {
-  let obj = new Costume(data)
-  obj.makeValuesReadable()
-
-  console.log("Im in render costume.");
-  console.log(obj);
+  // Replaces the shorthand values of costume attributes with user-readable longhand
   let bottomContainer = document.getElementById('bottomContainer');
 
   let rowDiv = document.createElement('row');
@@ -16,7 +12,7 @@ function renderCostume(data)
 
   let infoCard = document.createElement('div');
   infoCard.class = 'col';
-  infoCard.innerText = `${obj['name']}\ngender: ${obj['gender']}\nsize: ${obj['size']}\ntheme: ${obj['theme']}`;
+  infoCard.innerText = `${obj['name']}\nGender: ${obj['gender']}\nSize: ${obj['size']}\nTheme: ${obj['theme']}`;
 
   rowDiv.appendChild(infoCard);
 

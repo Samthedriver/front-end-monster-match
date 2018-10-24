@@ -1,15 +1,11 @@
 let loggedInUser = {};
 let loginDivInit = false;
+var users
+var costumes
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
-  init();
-});
-
-function init()
-{
   loginOrNewUser();
   Controller.getAllCostumes();
-
-}
+  Controller.getAllUsers()
+});
