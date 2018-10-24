@@ -1,59 +1,41 @@
 function loginOrNewUser()
 {
-  let container = document.getElementById('welcomeContainer');
+  // let rowDiv = document.createElement('div');
 
-  let rowDiv = document.createElement('div');
+  // rowDiv.class="row";
+  // rowDiv.className="btn btn-secondary";
 
-  rowDiv.class="row";
-  rowDiv.className="btn btn-secondary";
+  // let header = document.createElement('btn');
+  // header.class = "col-md-4";
+  // header.className = "btn btn-secondary";
+  // header.innerText = "Monster Match";
 
-  let header = document.createElement('btn');
-  header.class = "col-md-4";
-  header.className = "btn btn-secondary";
-  header.innerText = "Monster Match";
 
-  let loginBtn = document.createElement('btn');
-  loginBtn.id = "loginBtn";
-  loginBtn.class = "col-md-4";
-  loginBtn.innerHTML = `<button type="button" class="btn btn-secondary">Login</button>`;
-  loginBtn.addEventListener('click', addLoginBtnListener);
+  // let loginBtn = document.createElement('btn');
+  // loginBtn.id = "loginBtn";
+  // loginBtn.class = "col-md-4";
+  // loginBtn.innerHTML = `<button type="button" class="btn btn-secondary">Login</button>`;
+  document.getElementById('loginBtn').addEventListener('click', addLoginBtnListener);
 
-  let newUserBtn = document.createElement('btn');
-  newUserBtn.id = "newUserBtn";
-  newUserBtn.class = "col-md-4";
-  newUserBtn.innerHTML = `<button type="button" class="btn btn-secondary">New User</button>`;
-  newUserBtn.addEventListener('click', addNewUserBtnListener);
+  // let newUserBtn = document.createElement('btn');
+  // newUserBtn.id = "newUserBtn";
+  // newUserBtn.class = "col-md-4";
+  // newUserBtn.innerHTML = `<button type="button" class="btn btn-secondary">New User</button>`;
+  document.getElementById('newUserBtn').addEventListener('click', addNewUserBtnListener);
 
-  rowDiv.appendChild(header);
-  rowDiv.appendChild(loginBtn);
-  rowDiv.appendChild(newUserBtn);
-  container.appendChild(rowDiv);
+  // rowDiv.appendChild(header);
+  // rowDiv.appendChild(loginBtn);
+  // rowDiv.appendChild(newUserBtn);
+  // welcomeContainer.appendChild(rowDiv);
+  welcomeContainer.style.display = 'block';
 }
 
 function addLoginBtnListener()
 {
   event.preventDefault();
-  let welcomeDiv = document.getElementById('welcomeContainer');
-  // debugger;
-  // if(welcomeDiv.style.display === 'block')
-  // {
-     welcomeDiv.style.display = 'none';
-  // }
-  // else
-  // {
-  //
-  // }
+  welcomeContainer.style.display = 'none';
 
-  let container = document.getElementById('loginContainer');
-  container.style.display = 'block';
-
-  // if(loginDivInit)
-  // {
-  //   container.style.display = 'block';
-  //   welcomeDiv.style.display = 'none';
-  //   document.getElementById('login_form').reset();
-  //   return;
-  // }
+  loginContainer.style.display = 'block';
 
   let loginForm = document.createElement('form');
   loginForm.id="login_form";
@@ -62,7 +44,7 @@ function addLoginBtnListener()
     <input type="text" class="form-control" id="login_input" placeholder="Enter Username">
   </div>
   <button type="submit" id="loginFormBtn" class="btn btn-secondary">Login</button>`;
-  container.appendChild(loginForm);
+  loginContainer.appendChild(loginForm);
 
   let loginFormBtn = document.getElementById('loginFormBtn');
   loginFormBtn.addEventListener('click', addloginFormBtnListener);
@@ -73,7 +55,7 @@ function addLoginBtnListener()
 function addloginFormBtnListener()
 {
   event.preventDefault();
-  document.getElementById('welcomeContainer').style.display = 'none';
+  welcomeContainer.style.display = 'none';
   let username = document.getElementById('login_input').value;
 
   loginUser(username);
@@ -82,9 +64,6 @@ function addloginFormBtnListener()
 
 function loginUser(username)
 {
-  let container = document.getElementById('loginContainer');
-  console.log(username);
-
   let found = false;
   fetch("http://localhost:3000/api/v1/users")
     .then(res => res.json())
@@ -105,10 +84,6 @@ function loginUser(username)
           alert('Username invalid, please enter a valid username.');
           return;
         }
-        while(container.firstChild)
-        {
-          container.removeChild(container.firstChild);
-        };
 
         displayUserOptions();
       });
@@ -116,11 +91,11 @@ function loginUser(username)
 
 function displayUserOptions()
 {
-  document.getElementById('loginContainer').style.display = 'none';
+  loginContainer.style.display = 'none';
   let container = document.getElementById('optionsContainer');
-  if(container.style.display === 'none')
+  if(optionsCntainer.style.display === 'none')
   {
-    container.style.display = 'block';
+    optionsCntainer.style.display = 'block';
     return;
   }
 
@@ -139,7 +114,7 @@ function displayUserOptions()
     </div>
   </div>`;
 
-  container.appendChild(rowDiv);
+  optionsCntainer.appendChild(rowDiv);
   let createCostumeBtn = document.getElementById('createCostumeBtn');
   createCostumeBtn.addEventListener('click', addCreateCostumeBtnListener);
 
@@ -153,8 +128,8 @@ function addLogoutBtnListener()
   event.preventDefault();
   loggedInUser = {};
   console.log("in logout listener");
-  document.getElementById('optionsContainer').style.display = "none";
-  document.getElementById('welcomeContainer').style.display = "block";
+  optionsContainer.style.display = "none";
+  welcomeContainer.style.display = "block";
 }
 
 function addCreateCostumeBtnListener()
@@ -168,13 +143,13 @@ function addNewUserBtnListener()
   event.preventDefault();
 
   //hiding welcome Div
-  document.getElementById('welcomeContainer').style.display = 'none';
+  welcomeContainer.style.display = 'none';
 
-  let container = document.getElementById('newUserContainer');
-  let loginBtn = document.getElementById('loginBtn');
-  let newUserBtn = event.currentTarget;
-  loginBtn.parentNode.removeChild(loginBtn);
-  newUserBtn.parentNode.removeChild(newUserBtn);
+  if(newUserContainer.style.display === 'none')
+  {
+    newUserContainer.style.display = 'block';
+    return;
+  }
 
   let loginForm = document.createElement('form');
   loginForm.id="login_form";
