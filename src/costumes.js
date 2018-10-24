@@ -1,6 +1,7 @@
-function renderCostume(obj)
+function renderCostume(data)
 {
-
+  let obj = new Costume(data)
+  obj.makeValuesReadable()
 
   console.log("Im in render costume.");
   console.log(obj);
