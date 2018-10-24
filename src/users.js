@@ -1,6 +1,7 @@
 function loginOrNewUser()
 {
-  let container = document.getElementById('topContainer');
+  let container = document.getElementById('welcomeContainer');
+
   let rowDiv = document.createElement('div');
 
   rowDiv.class="row";
@@ -32,8 +33,7 @@ function loginOrNewUser()
 function addLoginBtnListener()
 {
   event.preventDefault();
-
-  let container = document.getElementById('topContainer');
+  let container = document.getElementById('loginContainer');
   while(container.firstChild)
   {
     container.removeChild(container.firstChild);
@@ -47,27 +47,18 @@ function addLoginBtnListener()
   </div>
   <button type="submit" id="loginFormBtn" class="btn btn-secondary">Login</button>`;
   container.appendChild(loginForm);
-  // let loginInput = document.createElement('input');
-  // loginInput.id="login_input"
-  // loginInput.type="text"
-  // loginInput.placeholder = "Enter Username"
-  //
-  // let loginFormBtn = document.createElement('input');
-  // loginFormBtn.id ="loginFormBtn"
-  // loginFormBtn.type="submit"
-  // loginFormBtn.value="Login";
+
   let loginFormBtn = document.getElementById('loginFormBtn');
   loginFormBtn.addEventListener('click', addloginFormBtnListener);
 
-  // loginForm.appendChild(loginInput);
-  // loginForm.appendChild(loginFormBtn);
-  // container.appendChild(loginForm);
 }
 
 function addloginFormBtnListener()
 {
   event.preventDefault();
+  document.getElementById('welcomeContainer').style.display = 'none';
   let username = document.getElementById('login_input').value;
+<<<<<<< HEAD
   let container = document.getElementById('topContainer');
 
   while(!(loginUser(username)))
@@ -88,15 +79,45 @@ function loginUser()
 {
 
   return true;
+=======
+  let container = document.getElementById('loginContainer');
+  console.log(username);
+
+  let found = false;
+  fetch("http://localhost:3000/api/v1/users")
+    .then(res => res.json())
+      .then(data => {
+
+        data.forEach(user =>
+        {
+          if(username === user['username'])
+          {
+            found = true;
+            loggedInUser = user;
+            return true;
+          }
+        });
+        console.log(data);
+        if(!found)
+        {
+          alert('Username invalid, please enter a valid username.');
+          return;
+        }
+        while(container.firstChild)
+        {
+          container.removeChild(container.firstChild);
+        };
+
+        displayUserOptions();
+      });
+>>>>>>> 80ac813d7509460670ef9f530db5a3ea8d25d06f
 }
 
 function displayUserOptions()
 {
-  let container = document.getElementById('topContainer');
-  while(container.firstChild)
-  {
-    container.removeChild(container.firstChild);
-  };
+  document.getElementById('loginContainer').style.display = 'none';
+  let container = document.getElementById('optionsContainer');
+
   let rowDiv = document.createElement('div');
   rowDiv.innerHTML = `<div class="container">
     <div class="row">
@@ -116,6 +137,18 @@ function displayUserOptions()
   let createCostumeBtn = document.getElementById('createCostumeBtn');
   createCostumeBtn.addEventListener('click', addCreateCostumeBtnListener);
 
+  let logoutBtn = document.getElementById('logoutBtn');
+  logoutBtn.addEventListener('click', addLogoutBtnListener);
+
+}
+
+function addLogoutBtnListener()
+{
+  event.preventDefault();
+  loggedInUser = {};
+  console.log("in logout listener");
+  document.getElementById('optionsContainer').style.display = "none";
+  document.getElementById('welcomeContainer').style.display = "block";
 }
 
 function addCreateCostumeBtnListener()
@@ -127,7 +160,11 @@ function addCreateCostumeBtnListener()
 function addNewUserBtnListener()
 {
   event.preventDefault();
-  let container = document.getElementById('topContainer');
+
+  //hiding welcome Div
+  document.getElementById('welcomeContainer').style.display = 'none';
+
+  let container = document.getElementById('newUserContainer');
   let loginBtn = document.getElementById('loginBtn');
   let newUserBtn = event.currentTarget;
   loginBtn.parentNode.removeChild(loginBtn);
@@ -148,35 +185,16 @@ function addNewUserBtnListener()
   <button type="submit" id="newUserFormBtn" class="btn btn-secondary">Create User</button>`;
   container.appendChild(loginForm);
 
-  // let newUserForm = document.createElement('form');
-  // newUserForm.id="newUser_form";
-  //
-  // let newUserFirstName = document.createElement('input');
-  // newUserFirstName.id="newUserFirstName"
-  // newUserFirstName.type="text"
-  // newUserFirstName.placeholder = "First Name"
-  //
-  // let newUserLastName = document.createElement('input');
-  // newUserLastName.id="newUserLastName"
-  // newUserLastName.type="text"
-  // newUserLastName.placeholder = "Last Name"
-  //
-  // let newUserUserName = document.createElement('input');
-  // newUserUserName.id="newUserUserName"
-  // newUserUserName.type="text"
-  // newUserUserName.placeholder = "User Name"
-  //
-  // let newUserFormBtn = document.createElement('input');
-  // newUserFormBtn.id ="newUserFormBtn"
-  // newUserFormBtn.type="submit"
-  // newUserFormBtn.value="Create User";
-
-  // newUserForm.appendChild(newUserFirstName);
-  // newUserForm.appendChild(newUserLastName);
-  // newUserForm.appendChild(newUserUserName);
-  // newUserForm.appendChild(newUserFormBtn);
   container.appendChild(newUserForm);
 
-  let newUserLoginBtn = document.getElementById('newUserFromBtn');
-  newUserFormBtn.addEventListener('click', addNewUserBtnListener);
+  let newUserFormBtn = document.getElementById('newUserFormBtn');
+  newUserFormBtn.addEventListener('click', addCreateNewUserBtnListener);
+}
+
+function addCreateNewUserBtnListener()
+{
+  //assuming username is unigue and
+  console.log('should attempt to post new user data');
+  document.getElementById('newUserContainer').style.display = 'none';
+  document.getElementById('optionsContainer').style.display = 'block';
 }
