@@ -1,6 +1,7 @@
 function loginOrNewUser()
 {
   let container = document.getElementById('topContainer');
+
   let rowDiv = document.createElement('div');
 
   rowDiv.class="row";
@@ -32,7 +33,6 @@ function loginOrNewUser()
 function addLoginBtnListener()
 {
   event.preventDefault();
-
   let container = document.getElementById('topContainer');
   while(container.firstChild)
   {
@@ -47,21 +47,10 @@ function addLoginBtnListener()
   </div>
   <button type="submit" id="loginFormBtn" class="btn btn-secondary">Login</button>`;
   container.appendChild(loginForm);
-  // let loginInput = document.createElement('input');
-  // loginInput.id="login_input"
-  // loginInput.type="text"
-  // loginInput.placeholder = "Enter Username"
-  //
-  // let loginFormBtn = document.createElement('input');
-  // loginFormBtn.id ="loginFormBtn"
-  // loginFormBtn.type="submit"
-  // loginFormBtn.value="Login";
+
   let loginFormBtn = document.getElementById('loginFormBtn');
   loginFormBtn.addEventListener('click', addloginFormBtnListener);
 
-  // loginForm.appendChild(loginInput);
-  // loginForm.appendChild(loginFormBtn);
-  // container.appendChild(loginForm);
 }
 
 function addloginFormBtnListener()
@@ -69,24 +58,35 @@ function addloginFormBtnListener()
   event.preventDefault();
   let username = document.getElementById('login_input').value;
   let container = document.getElementById('topContainer');
+  console.log(username);
 
-  while(!(loginUser(username)))
-  {
-    alert('Username invalid, please enter a valid username.');
-  };
+  let found = false;
+  fetch("http://localhost:3000/api/v1/users")
+    .then(res => res.json())
+      .then(data => {
 
-  while(container.firstChild)
-  {
-    container.removeChild(container.firstChild);
-  };
+        data.forEach(user =>
+        {
+          if(username === user['username'])
+          {
+            found = true;
+            loggedInUser = user;
+            return true;
+          }
+        });
+        console.log(data);
+        if(!found)
+        {
+          alert('Username invalid, please enter a valid username.');
+          return;
+        }
+        while(container.firstChild)
+        {
+          container.removeChild(container.firstChild);
+        };
 
-  displayUserOptions();
-
-}
-
-function loginUser()
-{
-  return true;
+        displayUserOptions();
+      });
 }
 
 function displayUserOptions()
@@ -115,6 +115,17 @@ function displayUserOptions()
   let createCostumeBtn = document.getElementById('createCostumeBtn');
   createCostumeBtn.addEventListener('click', addCreateCostumeBtnListener);
 
+  let logoutBtn = document.getElementById('logoutBtn');
+  createCostumeBtn.addEventListener('click', addLogoutBtnListener);
+
+}
+
+function addLogoutBtnListener()
+{
+  event.preventDefault();
+  loggedInUser = {};
+  let container = document.getElementById('topContainer');
+  container.style.display = "none";
 }
 
 function addCreateCostumeBtnListener()
@@ -147,33 +158,6 @@ function addNewUserBtnListener()
   <button type="submit" id="newUserFormBtn" class="btn btn-secondary">Create User</button>`;
   container.appendChild(loginForm);
 
-  // let newUserForm = document.createElement('form');
-  // newUserForm.id="newUser_form";
-  //
-  // let newUserFirstName = document.createElement('input');
-  // newUserFirstName.id="newUserFirstName"
-  // newUserFirstName.type="text"
-  // newUserFirstName.placeholder = "First Name"
-  //
-  // let newUserLastName = document.createElement('input');
-  // newUserLastName.id="newUserLastName"
-  // newUserLastName.type="text"
-  // newUserLastName.placeholder = "Last Name"
-  //
-  // let newUserUserName = document.createElement('input');
-  // newUserUserName.id="newUserUserName"
-  // newUserUserName.type="text"
-  // newUserUserName.placeholder = "User Name"
-  //
-  // let newUserFormBtn = document.createElement('input');
-  // newUserFormBtn.id ="newUserFormBtn"
-  // newUserFormBtn.type="submit"
-  // newUserFormBtn.value="Create User";
-
-  // newUserForm.appendChild(newUserFirstName);
-  // newUserForm.appendChild(newUserLastName);
-  // newUserForm.appendChild(newUserUserName);
-  // newUserForm.appendChild(newUserFormBtn);
   container.appendChild(newUserForm);
 
   let newUserLoginBtn = document.getElementById('newUserFromBtn');
