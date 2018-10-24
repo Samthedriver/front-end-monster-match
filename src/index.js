@@ -1,3 +1,5 @@
+var costumes
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
   init();
@@ -5,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function init()
 {
-  // loginOrNewUser();
+  loginOrNewUser();
   Controller.getAllCostumes();
 
 

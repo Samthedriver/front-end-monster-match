@@ -86,6 +86,7 @@ function addloginFormBtnListener()
 
 function loginUser()
 {
+
   return true;
 }
 

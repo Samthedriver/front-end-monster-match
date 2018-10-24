@@ -12,12 +12,14 @@ class Controller {
     fetch("http://localhost:3000/api/v1/costumes")
     .then(res => res.json())
     .then(json => {
-      json.forEach(obj => {
-        let newObj = new Costume(obj)
-        renderCostume(newObj)
+      costumes = json.map(costume => {
+        let obj = new Costume(costume)
+        renderCostume(obj)
+        return obj
       })
-    })
-  }
+      })
+    }
+
 
   // Confirm that the costume var is available within the fetch call
   static postCostume(event){
