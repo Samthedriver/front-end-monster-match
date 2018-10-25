@@ -5,9 +5,6 @@
 </head>
 
 <body>
-  <header>
-    <h1>Monster Match</h1>
-  </header>
   <div class="container-fluid" id="welcomeContainer">
     <div class="row">
       <button type="button" class="col-sm-2 btn btn-secondary">Monster Match</button>
@@ -16,18 +13,42 @@
     </div>
   </div>
 
-  </div>
   <div class="container-fluid" id="loginContainer">
-    <!-- <button id="login_button">Login</button>
-    <button id="newUser_button">New User</button> -->
+    <div class="form col-md-6" id = "login_form">
+      <div class="form-group">
+        <input type="text" class="form-control" id="login_input" placeholder="Enter Username">
+      </div>
+      <button type="button" id="loginFormBtn" class="btn btn-secondary">Login</button>
+    </div>
   </div>
-  <div class="container-fluid" id="optionsContainer">
-    <!-- <button id="login_button">Login</button>
-    <button id="newUser_button">New User</button> -->
+
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-sm">
+        <button type="button" id="createCostumeBtn" class="btn btn-secondary">Create a costume</button>
+      </div>
+      <div class="col-sm">
+        <button type="button" id="viewCostumeBtn" class="btn btn-secondary">View your costumes</button>
+      </div>
+      <div class="col-sm">
+        <button type="button" id="logoutBtn" class="btn btn-secondary">Logout</button>
+      </div>
+    </div>
   </div>
+
   <div class="container-fluid" id="newUserContainer">
-    <!-- <button id="login_button">Login</button>
-    <button id="newUser_button">New User</button> -->
+    <div class="form col-md-6" id = "login_form">
+      <div class="form-group">
+        <input type="text" class="form-control" id="newUserFirstName" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="newUserLastName" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="newUserUserName" placeholder="Username">
+      </div>
+      <button type="button" id="newUserFormBtn" class="btn btn-secondary">Create User</button>
+    </div>
   </div>
   <div class="container-fluid" id="topContainer">
     <!-- <button id="login_button">Login</button>
