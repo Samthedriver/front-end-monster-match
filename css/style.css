@@ -1,7 +1,7 @@
 body {
    margin: 0;
    background-image: url("../images/MonsterMatchBackground.jpg");
-   background-size: 1440px 800px;
+   background-size: 100%;
    /* background-repeat:no-repeat; */
    display: compact;
 }
@@ -24,4 +24,12 @@ img:hover {
 
 #listingsContainer * {
   color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+#listingsContainer div.listing {
+  background-color: grey;
 }

@@ -4,8 +4,12 @@ let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
 let costumeFormContainer = {};
-var costumes;
-var users;
+var users
+var costumes
+var listings
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
@@ -31,8 +35,13 @@ function init()
   addLoginContainerListeners();
   addNewUserContainerListeners();
   displayWelcomeContainer();
-  Controller.getAllCostumes();
   renderCostumeForm();
+  // loginOrNewUser(); Cannot find function
+  Promise.all([Controller.getAllCostumes(), Controller.getAllUsers()])
+  .then(() => {
+    Controller.getAllListings()
+  })
+
 
 }
 
