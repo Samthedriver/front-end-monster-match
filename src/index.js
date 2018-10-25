@@ -3,17 +3,14 @@ let welcomeContainer = {};
 let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
-<<<<<<< HEAD
 var users
 var costumes
 var listings
 
 
-=======
 let costumeFormContainer = {};
 var costumes;
 var users;
->>>>>>> 5be65eaaa7e6931f74c96a2b5b657c273179df84
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
