@@ -36,7 +36,7 @@ function addLogoutBtnListener()
 function addCreateCostumeBtnListener()
 {
   event.preventDefault();
-  renderCostumeForm();
+  displayCostumeFormContainer();
 }
 
 function addNewUserBtnListener()
