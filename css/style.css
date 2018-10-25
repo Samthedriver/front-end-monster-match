@@ -1,9 +1,12 @@
+
+
 body {
    margin: 0;
    background-image: url("../images/spookyTrees.jpg");
    background-size: 100%;
    /* background-repeat:no-repeat; */
    display: compact;
+   font-family: northwood_highregular;
 }
 
 .costumeCard {
