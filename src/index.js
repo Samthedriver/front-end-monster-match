@@ -4,6 +4,7 @@ let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
 let costumeFormContainer = {};
+let listingsContainer = {};
 var users
 var costumes
 var listings
@@ -23,12 +24,14 @@ function init()
   newUserContainer = document.getElementById('newUserContainer');
   optionsContainer = document.getElementById('optionsContainer');
   costumeFormContainer = document.getElementById('costumeFormContainer');
+  listingsContainer = document.getElementById('listingsContainer');
 
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
 
   addWelcomeContainerListeners();
   addOptionsContainerListeners();
@@ -36,6 +39,7 @@ function init()
   addNewUserContainerListeners();
   displayWelcomeContainer();
   renderCostumeForm();
+
   // loginOrNewUser(); Cannot find function
   Promise.all([Controller.getAllCostumes(), Controller.getAllUsers()])
   .then(() => {
@@ -79,6 +83,25 @@ function addOptionsContainerListeners()
 
   let logoutBtn = document.getElementById('logoutBtn');
   logoutBtn.addEventListener('click', addLogoutBtnListener);
+
+  let viewListingsBtn = document.getElementById('viewListingsBtn');
+  viewListingsBtn.addEventListener('click', addViewListingsBtnListeners);
+
+}
+
+function addViewListingsBtnListeners()
+{
+  displayListingsContainer();
+}
+
+function displayListingsContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'none';
+  optionsContainer.style.display = 'block';
+  costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'block';
 }
 
 function displayOptionsContainer()
@@ -88,6 +111,7 @@ function displayOptionsContainer()
   newUserContainer.style.display = 'none';
   optionsContainer.style.display = 'block';
   costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
 }
 
 function addWelcomeContainerListeners()
@@ -115,6 +139,7 @@ function displayCostumeFormContainer()
   newUserContainer.style.display = 'none';
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'block';
+  listingsContainer.style.display = 'none';
 }
 
 function displayNewUserContainer()
@@ -124,6 +149,7 @@ function displayNewUserContainer()
   newUserContainer.style.display = 'block';
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
 }
 
 function displayLoginContainer()
@@ -133,6 +159,7 @@ function displayLoginContainer()
   newUserContainer.style.display = 'none';
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
 }
 
 function displayWelcomeContainer()
@@ -142,4 +169,5 @@ function displayWelcomeContainer()
   newUserContainer.style.display = 'none';
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
 }
