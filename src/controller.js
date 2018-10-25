@@ -9,7 +9,7 @@ class Controller {
 
   // Any event passed in method call should be ignored
   static getAllCostumes(){
-    fetch("http://localhost:3000/api/v1/costumes")
+    return fetch("http://localhost:3000/api/v1/costumes")
     .then(res => res.json())
     .then(json => {
       costumes = json.map(costume => {
@@ -98,7 +98,7 @@ class Controller {
   //
 
   static getAllUsers() {
-    fetch("http://localhost:3000/api/v1/users")
+    return fetch("http://localhost:3000/api/v1/users")
     .then(res => res.json())
     .then(json => {
       users = json.map(user => {
@@ -128,7 +128,37 @@ class Controller {
       })
     })
     .then(res => res.json())
-    .then(json => console.log)
+    .then(json => console.log(json))
+  }
+
+  static getAllListings() {
+    fetch("http://localhost:3000/api/v1/listings")
+    .then(res => res.json())
+    .then(json => {
+      listings = json.map(listing => {
+        let obj = new Listing(listing)
+        renderListing(obj)
+        return obj
+      })
+    })
+  }
+
+  static postListing(event) {
+
+    // parse event data to be added to request body
+    let listing = event
+
+    fetch('http://localhost:3000/api/v1/listings', {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "costume_id": listing.costume_id,
+        "description": listing.description,
+      })
+    })
   }
 
 }

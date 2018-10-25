@@ -21,3 +21,7 @@ img:hover {
 #bottomContainer * {
   color: white;
 }
+
+#listingsContainer * {
+  color: white;
+}

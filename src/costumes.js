@@ -12,7 +12,7 @@ function renderCostume(obj)
 
   let infoCard = document.createElement('div');
   infoCard.class = 'col';
-  infoCard.innerText = `${obj['name']}\nGender: ${obj['gender']}\nSize: ${obj['size']}\nTheme: ${obj['theme']}`;
+  infoCard.innerText = `${obj['name']}\nGender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
 
   rowDiv.appendChild(infoCard);
 
