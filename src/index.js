@@ -3,8 +3,13 @@ let welcomeContainer = {};
 let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
+<<<<<<< HEAD
 var costumes;
 var users;
+=======
+var users
+var costumes
+>>>>>>> 786c96fcab01dc99a5c0f2899be6f3b1d9e44338
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,6 +33,7 @@ function init()
   addLoginContainerListeners();
   welcomeUser();
   Controller.getAllCostumes();
+<<<<<<< HEAD
 
 }
 
@@ -88,3 +94,7 @@ function welcomeUser()
   newUserContainer.style.display = 'none';
   //optionsContainer.style.display = 'none';
 }
+=======
+  Controller.getAllUsers()
+});
+>>>>>>> 786c96fcab01dc99a5c0f2899be6f3b1d9e44338

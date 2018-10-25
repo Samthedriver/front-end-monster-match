@@ -12,6 +12,12 @@ class Costume {
 
   makeValuesReadable() {
 
+    // Format Name as titlecase
+    this.name = this.name.split(' ').map(word => {
+
+      return word.replace(word[0], word[0].toUpperCase())
+    }).join(' ')
+
     // Format Gender
     switch(this.gender) {
       case "m":
@@ -55,7 +61,7 @@ class Costume {
       case "animal":
         this.theme = "Animal"
         break;
-      case "Celeb":
+      case "celeb":
         this.theme = "Celebrity"
         break;
       case "char":

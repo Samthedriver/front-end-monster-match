@@ -14,6 +14,7 @@ class Controller {
     .then(json => {
       costumes = json.map(costume => {
         let obj = new Costume(costume)
+        obj.makeValuesReadable()
         renderCostume(obj)
         return obj
       })
@@ -95,23 +96,39 @@ class Controller {
   //   .then(json => console.log)
   // }
   //
-  // static postUser(event) {
-  //   let user = event.target
-  //
-  //   fetch(users_url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       "firstname": user.firstname,
-  //       "lastname": user.lastname,
-  //       "username": user.username
-  //     })
-  //   })
-  //   .then(res => res.json())
-  //   .then(json => console.log)
-  // }
+
+  static getAllUsers() {
+    fetch("http://localhost:3000/api/v1/users")
+    .then(res => res.json())
+    .then(json => {
+      users = json.map(user => {
+        return new User(user)
+      })
+    })
+  }
+
+  static postUser(event) {
+    let formFields = event.target.parentElement.querySelectorAll('div.form-group input')
+    let user = {
+      "firstname": formFields[0].value,
+      "lastname": formFields[1].value,
+      "username": formFields[2].value
+    }
+
+    fetch('http://localhost:3000/api/v1/users', {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "firstname": user.firstname,
+        "lastname": user.lastname,
+        "username": user.username
+      })
+    })
+    .then(res => res.json())
+    .then(json => console.log)
+  }
 
 }
