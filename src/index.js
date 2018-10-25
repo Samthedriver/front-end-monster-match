@@ -7,7 +7,6 @@ let costumeFormContainer = {};
 var costumes;
 var users;
 
-
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
   init();

@@ -8,6 +8,8 @@ class Costume {
     this.spookiness = obj.spookiness
     this.gender = obj.gender
     this.img_url = obj.img_url
+    this.id = obj.id
+    this.user_id = obj.user_id
   }
 
   makeValuesReadable() {
