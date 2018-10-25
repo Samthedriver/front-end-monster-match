@@ -3,13 +3,9 @@ let welcomeContainer = {};
 let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
-<<<<<<< HEAD
+let costumeFormContainer = {};
 var costumes;
 var users;
-=======
-var users
-var costumes
->>>>>>> 786c96fcab01dc99a5c0f2899be6f3b1d9e44338
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,19 +18,36 @@ function init()
   welcomeContainer = document.getElementById('welcomeContainer');
   loginContainer = document.getElementById('loginContainer');
   newUserContainer = document.getElementById('newUserContainer');
-  //optionsContainer = document.getElementById('optionsContainer');
+  optionsContainer = document.getElementById('optionsContainer');
+  costumeFormContainer = document.getElementById('costumeFormContainer');
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 
   addWelcomeContainerListeners();
   addOptionsContainerListeners();
   addLoginContainerListeners();
-  welcomeUser();
+  addNewUserContainerListeners();
+  displayWelcomeContainer();
   Controller.getAllCostumes();
-<<<<<<< HEAD
+  renderCostumeForm();
 
+}
+
+function addNewUserContainerListeners()
+{
+  let newUserBtn = document.getElementById('newUserFormBtn');
+  newUserFormBtn.addEventListener('click', addNewUserFormBtnListener);
+}
+
+function addNewUserFormBtnListener()
+{
+  event.preventDefault();
+  //create new user();
+  //logged in screen - optionsContainer view
+  displayOptionsContainer();
 }
 
 function addLoginContainerListeners()
@@ -59,12 +72,13 @@ function addOptionsContainerListeners()
   logoutBtn.addEventListener('click', addLogoutBtnListener);
 }
 
-function displayUserOptions()
+function displayOptionsContainer()
 {
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'block';
+  optionsContainer.style.display = 'block';
+  costumeFormContainer.style.display = 'none';
 }
 
 function addWelcomeContainerListeners()
@@ -76,25 +90,47 @@ function addWelcomeContainerListeners()
 function addLoginBtnListener()
 {
   event.preventDefault();
-  displayLogin();
+  displayLoginContainer();
 }
 
-function displayLogin()
+function addNewUserBtnListener()
+{
+  event.preventDefault();
+  displayNewUserContainer();
+}
+
+function displayCostumeFormContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'block';
+}
+
+function displayNewUserContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'block';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
+}
+
+function displayLoginContainer()
 {
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'block';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 }
 
-function welcomeUser()
+function displayWelcomeContainer()
 {
   welcomeContainer.style.display = 'block';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 }
-=======
-  Controller.getAllUsers()
-});
->>>>>>> 786c96fcab01dc99a5c0f2899be6f3b1d9e44338

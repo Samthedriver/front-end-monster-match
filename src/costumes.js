@@ -28,19 +28,37 @@ function formSubmitBtnListener(event) {
 
 function renderCostumeForm() {
   event.preventDefault()
+
   // How will user_id be passed in form?
   // Shouldn't some of these inputs be dropdowns with pre-determined values? How to implement?
 
   let costumeFormDiv = $('#costumeFormContainer')[0] // The zero is here to return the DOM object within the returned jquery object
 
+  // <div class="container-fluid" id="newUserContainer">
+  //   <div class="form col-md-6" id = "login_form">
+  //     <div class="form-group">
+  //       <input type="text" class="form-control" id="newUserFirstName" placeholder="First Name">
+  //     </div>
+  //     <div class="form-group">
+  //       <input type="text" class="form-control" id="newUserLastName" placeholder="Last Name">
+  //     </div>
+  //     <div class="form-group">
+  //       <input type="text" class="form-control" id="newUserUserName" placeholder="Username">
+  //     </div>
+  //     <button type="button" id="newUserFormBtn" class="btn btn-secondary">Create User</button>
+  //   </div>
+  // </div>
+
   let form = document.createElement('form')
   form.id = 'costumeForm'
+  form.class = "form col-md-6"
   costumeFormDiv.appendChild(form)
 
 
   // CREATE NAME TEXT INPUT FIELD
   let name = document.createElement('input')
   name.id = "newCostumeName"
+  name.class = "form-control"
   name.type = "text"
   name.placeholder = "Costume Name"
   form.appendChild(name)
@@ -240,6 +258,8 @@ function renderCostumeForm() {
   // CREATE IMAGE TEXT FIELD
   let image = document.createElement('input')
   image.id = "newCostumeImage"
+  image.class = "form-control"
+  image.type = "text"
   image.type = "text"
   image.placeholder = "Costume Image URL"
 
@@ -251,6 +271,7 @@ function renderCostumeForm() {
   let submitBtn = document.createElement('input')
   submitBtn.type = 'submit'
   submitBtn.value = 'submit'
+  submitBtn.class="btn btn-secondary";
   submitBtn.addEventListener('click', formSubmitBtnListener)
 
   form.appendChild(submitBtn)
