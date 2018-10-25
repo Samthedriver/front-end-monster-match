@@ -21,7 +21,7 @@ function loginUser(username)
           return;
         }
 
-        displayUserOptions();
+        displayOptionsContainer();
       });
 }
 
@@ -30,7 +30,7 @@ function addLogoutBtnListener()
   event.preventDefault();
   loggedInUser = {};
   console.log("in logout listener");
-  welcomeUser();
+  displayWelcomeContainer();
 }
 
 function addCreateCostumeBtnListener()
@@ -72,6 +72,7 @@ function addNewUserBtnListener()
   let newUserFormBtn = document.getElementById('newUserFormBtn');
   newUserFormBtn.addEventListener('click', addCreateNewUserBtnListener);
 
+    displayCostumeFormContainer();
 }
 
 function addCreateNewUserBtnListener(event)

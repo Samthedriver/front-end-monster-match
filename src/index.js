@@ -3,11 +3,17 @@ let welcomeContainer = {};
 let loginContainer = {};
 let newUserContainer = {};
 let optionsContainer = {};
+<<<<<<< HEAD
 var users
 var costumes
 var listings
 
 
+=======
+let costumeFormContainer = {};
+var costumes;
+var users;
+>>>>>>> 5be65eaaa7e6931f74c96a2b5b657c273179df84
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('%c DOM Content Loaded and Parsed!', 'color: magenta')
@@ -20,15 +26,19 @@ function init()
   loginContainer = document.getElementById('loginContainer');
   newUserContainer = document.getElementById('newUserContainer');
   optionsContainer = document.getElementById('optionsContainer');
-
+  costumeFormContainer = document.getElementById('costumeFormContainer');
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 
   addWelcomeContainerListeners();
   addOptionsContainerListeners();
   addLoginContainerListeners();
+  addNewUserContainerListeners();
+  displayWelcomeContainer();
+  renderCostumeForm();
   welcomeUser();
   // loginOrNewUser(); Cannot find function
   Promise.all([Controller.getAllCostumes(), Controller.getAllUsers()])
@@ -37,6 +47,20 @@ function init()
   })
 
 
+}
+
+function addNewUserContainerListeners()
+{
+  let newUserBtn = document.getElementById('newUserFormBtn');
+  newUserFormBtn.addEventListener('click', addNewUserFormBtnListener);
+}
+
+function addNewUserFormBtnListener()
+{
+  event.preventDefault();
+  //create new user();
+  //logged in screen - optionsContainer view
+  displayOptionsContainer();
 }
 
 function addLoginContainerListeners()
@@ -61,12 +85,13 @@ function addOptionsContainerListeners()
   logoutBtn.addEventListener('click', addLogoutBtnListener);
 }
 
-function displayUserOptions()
+function displayOptionsContainer()
 {
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'block';
+  optionsContainer.style.display = 'block';
+  costumeFormContainer.style.display = 'none';
 }
 
 function addWelcomeContainerListeners()
@@ -78,21 +103,47 @@ function addWelcomeContainerListeners()
 function addLoginBtnListener()
 {
   event.preventDefault();
-  displayLogin();
+  displayLoginContainer();
 }
 
-function displayLogin()
+function addNewUserBtnListener()
+{
+  event.preventDefault();
+  displayNewUserContainer();
+}
+
+function displayCostumeFormContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'block';
+}
+
+function displayNewUserContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'block';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
+}
+
+function displayLoginContainer()
 {
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'block';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 }
 
-function welcomeUser()
+function displayWelcomeContainer()
 {
   welcomeContainer.style.display = 'block';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
-  //optionsContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
 }
