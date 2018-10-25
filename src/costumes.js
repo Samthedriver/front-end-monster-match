@@ -3,27 +3,45 @@ function renderCostume(obj)
   // Replaces the shorthand values of costume attributes with user-readable longhand
   let bottomContainer = document.getElementById('bottomContainer');
 
-  let rowDiv = document.createElement('row');
+  let card = document.createElement('card');
 
-  let image = document.createElement('img');
-  image.src = obj['img_url'];
+  let imageCard = document.createElement('img');
+  imageCard.src = obj['img_url'];
+  imageCard.className = "card-mg-top";
 
-  rowDiv.appendChild(image);
 
-  let infoCard = document.createElement('div');
-  infoCard.class = 'col';
-  infoCard.innerText = `${obj['name']}\nGender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
+  // let cardBody = document.createElement('div');
+  // cardBody.className = "card-body";
 
-  rowDiv.appendChild(infoCard);
+  let cardHeader = document.createElement('div');
+  cardHeader.className = "card-header";
+  cardHeader.innerText = `${obj['name']}`;
 
-  bottomContainer.appendChild(rowDiv);
+  let infoCard = document.createElement('p');
+  infoCard.className = 'card-text';
+  infoCard.innerText = `Gender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
+
+  card.appendChild(cardHeader);
+  card.appendChild(imageCard);
+  card.appendChild(infoCard);
+
+  bottomContainer.appendChild(card);
+
+//   <div class="card" style="width: 18rem;">
+//   <img class="card-img-top" src="..." alt="Card image cap">
+//   <div class="card-body">
+//     <h5 class="card-title">Card title</h5>
+//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+//     <a href="#" class="btn btn-primary">Go somewhere</a>
+//   </div>
+// </div>
 
 }
 
 function formSubmitBtnListener(event) {
   form = event.target.parentNode
   console.log(form)
-  debugger
+  displayOptionsContainer();
 }
 
 function renderCostumeForm() {
@@ -49,25 +67,34 @@ function renderCostumeForm() {
   //   </div>
   // </div>
 
-  let form = document.createElement('form')
+  let form = document.createElement('div')
   form.id = 'costumeForm'
   form.class = "form col-md-6"
+  form.className = "btn btn secondary"
   costumeFormDiv.appendChild(form)
 
-
+  let div1 = document.createElement('div')
+  div1.class = "form-group"
+  div1.className = "btn btn secondary"
   // CREATE NAME TEXT INPUT FIELD
   let name = document.createElement('input')
   name.id = "newCostumeName"
   name.class = "form-control"
   name.type = "text"
   name.placeholder = "Costume Name"
-  form.appendChild(name)
 
+  div1.appendChild(name)
+  form.appendChild(div1)
 
+  let div2 = document.createElement('div')
+  div2.class = "form-group"
+  div2.className = "btn btn secondary"
   // CREATE GENDER DROPDOWN
   let gender = document.createElement('select')
   gender.id = "newCostumeGender"
   gender.type = "select"
+  gender.class = "form-control"
+  gender.className = "btn btn secondary"
 
   // Adding optional values (m f unisex)
   let genderOption1 = document.createElement('option')
@@ -85,9 +112,12 @@ function renderCostumeForm() {
   gender.appendChild(genderOption2)
   gender.appendChild(genderOption3)
 
-  form.appendChild(gender)
+  div2.appendChild(gender)
+  form.appendChild(div2)
 
-
+  let div3 = document.createElement('div')
+  div3.class = "form-group"
+  div3.className = "btn btn secondary"
   // CREATE SIZE DROPDOWN
   let size = document.createElement('select')
   size.id = "newCostumeSize"
@@ -113,13 +143,17 @@ function renderCostumeForm() {
   size.appendChild(sizeOption3)
   size.appendChild(sizeOption4)
 
-  form.appendChild(size)
-
+  div3.appendChild(size)
+  form.appendChild(div3)
 
   // CREATE TYPE DROPDOWN
   let category = document.createElement('select')
   category.id = "newCostumeType"
   category.type = "select"
+
+  let div4 = document.createElement('div')
+  div4.class = "form-group"
+  div4.className = "btn btn secondary"
   // Adding optional values (casual cosplay sexy funny scary)
   let categoryOption1 = document.createElement('option')
   let categoryOption2 = document.createElement('option')
@@ -144,9 +178,14 @@ function renderCostumeForm() {
   category.appendChild(categoryOption4)
   category.appendChild(categoryOption5)
 
-  form.appendChild(category)
+
+  div4.appendChild(category)
+  form.appendChild(div4)
 
 
+  let div5 = document.createElement('div')
+  div5.class = "form-group"
+  div5.className = "btn btn secondary"
 
   // CREATE SPOOKINESS DROPDOWN
   let spookiness= document.createElement('select')
@@ -176,13 +215,19 @@ function renderCostumeForm() {
   spookiness.appendChild(spookinessOption4)
   spookiness.appendChild(spookinessOption5)
 
-  form.appendChild(spookiness)
+
+  div5.appendChild(spookiness)
+  form.appendChild(div5)
 
 
   // CREATE THEME DROPDOWN
   let theme = document.createElement('select')
   theme.id = "newCostumeTheme"
   theme.type = "select"
+  theme.className="btn btn secondary"
+  let div6 = document.createElement('div')
+  div6.class = "form-group"
+  div6.className = "btn btn secondary"
 
   // Adding optional values (prof monster animal celeb char pun)
   let themeOption1 = document.createElement('option')
@@ -212,13 +257,17 @@ function renderCostumeForm() {
   theme.appendChild(themeOption5)
   theme.appendChild(themeOption6)
 
-  form.appendChild(theme)
+  div6.appendChild(theme)
+  form.appendChild(div6)
 
 
   // CREATE PARTS DROPDOWN
   let parts = document.createElement('select')
   parts.id = "newCostumeParts"
   parts.type = "select"
+  let div7 = document.createElement('div')
+  div7.class = "form-group"
+  div7.className = "btn btn secondary"
 
   // Adding optional values (whole feet legs chest head access)
   let partsOption1 = document.createElement('option')
@@ -252,7 +301,8 @@ function renderCostumeForm() {
   parts.appendChild(partsOption6)
   parts.appendChild(partsOption7)
 
-  form.appendChild(parts)
+  div7.appendChild(spookiness)
+  form.appendChild(div7)
 
 
   // CREATE IMAGE TEXT FIELD
@@ -263,17 +313,28 @@ function renderCostumeForm() {
   image.type = "text"
   image.placeholder = "Costume Image URL"
 
-  form.appendChild(image)
+  let div8 = document.createElement('div')
+  div8.class = "form-group"
+  div8.className = "btn btn secondary"
+
+  div8.appendChild(image)
+  form.appendChild(div8)
 
 
   // CREATE SUBMIT BUTTON
   // Hypothesis: No event listener needed, the form will follow the action attr
   let submitBtn = document.createElement('input')
-  submitBtn.type = 'submit'
-  submitBtn.value = 'submit'
-  submitBtn.class="btn btn-secondary";
+  submitBtn.type = 'button'
+  submitBtn.value = 'Create New Costume'
+  submitBtn.className="btn btn-secondary";
+  let div9 = document.createElement('div')
+  div9.class = "form-group"
+  div9.className = "btn btn secondary"
+
+
   submitBtn.addEventListener('click', formSubmitBtnListener)
 
-  form.appendChild(submitBtn)
+  div9.appendChild(submitBtn)
+  form.appendChild(div9)
 
 }

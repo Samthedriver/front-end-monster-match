@@ -19,6 +19,7 @@ function init()
   newUserContainer = document.getElementById('newUserContainer');
   optionsContainer = document.getElementById('optionsContainer');
   costumeFormContainer = document.getElementById('costumeFormContainer');
+
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
   newUserContainer.style.display = 'none';
