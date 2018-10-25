@@ -5,6 +5,7 @@ let newUserContainer = {};
 let optionsContainer = {};
 let costumeFormContainer = {};
 let listingsContainer = {};
+let rentalReturnsContainer = {};
 var users
 var costumes
 var listings
@@ -25,6 +26,7 @@ function init()
   optionsContainer = document.getElementById('optionsContainer');
   costumeFormContainer = document.getElementById('costumeFormContainer');
   listingsContainer = document.getElementById('listingsContainer');
+  rentalReturnsContainer = document.getElementById('rentalReturnsContainer');
 
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
@@ -32,6 +34,7 @@ function init()
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 
   addWelcomeContainerListeners();
   addOptionsContainerListeners();
@@ -87,11 +90,19 @@ function addOptionsContainerListeners()
   let viewListingsBtn = document.getElementById('viewListingsBtn');
   viewListingsBtn.addEventListener('click', addViewListingsBtnListeners);
 
+  let viewRentalsBtn = document.getElementById('viewRentalsBtn');
+  viewRentalsBtn.addEventListener('click', addViewRentalsBtnListeners);
+
 }
 
 function addViewListingsBtnListeners()
 {
   displayListingsContainer();
+}
+
+function addViewRentalsBtnListeners()
+{
+  displayRentalReturnsContainer();
 }
 
 function displayListingsContainer()
@@ -102,6 +113,18 @@ function displayListingsContainer()
   optionsContainer.style.display = 'block';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'block';
+  rentalReturnsContainer.style.display = 'none';
+}
+
+function displayRentalReturnsContainer()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'none';
+  optionsContainer.style.display = 'block';
+  costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'block';
 }
 
 function displayOptionsContainer()
@@ -112,6 +135,7 @@ function displayOptionsContainer()
   optionsContainer.style.display = 'block';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 }
 
 function addWelcomeContainerListeners()
@@ -140,6 +164,7 @@ function displayCostumeFormContainer()
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'block';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 }
 
 function displayNewUserContainer()
@@ -150,6 +175,7 @@ function displayNewUserContainer()
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 }
 
 function displayLoginContainer()
@@ -160,6 +186,7 @@ function displayLoginContainer()
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 }
 
 function displayWelcomeContainer()
@@ -170,4 +197,5 @@ function displayWelcomeContainer()
   optionsContainer.style.display = 'none';
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
 }
