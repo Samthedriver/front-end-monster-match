@@ -5,9 +5,8 @@ let newUserContainer = {};
 let optionsContainer = {};
 var users
 var costumes
-<<<<<<< HEAD
 var listings
-=======
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,11 +30,12 @@ function init()
   addOptionsContainerListeners();
   addLoginContainerListeners();
   welcomeUser();
-  loginOrNewUser();
+  // loginOrNewUser(); Cannot find function
   Promise.all([Controller.getAllCostumes(), Controller.getAllUsers()])
   .then(() => {
     Controller.getAllListings()
   })
+
 
 }
 
@@ -96,5 +96,3 @@ function welcomeUser()
   newUserContainer.style.display = 'none';
   //optionsContainer.style.display = 'none';
 }
-
-});

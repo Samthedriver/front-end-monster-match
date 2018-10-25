@@ -45,9 +45,8 @@ function addNewUserBtnListener()
 
   welcomeContainer.style.display = 'none';
 
-<<<<<<< HEAD
   newUserContainer.style.display = 'block';
-=======
+
   if(newUserContainer.style.display === 'none')
   {
     newUserContainer.style.display = 'block';
@@ -68,7 +67,7 @@ function addNewUserBtnListener()
   </div>
   <button type="button" id="newUserFormBtn" class="btn btn-secondary">Create User</button>`;
   container.appendChild(loginForm);
->>>>>>> 786c96fcab01dc99a5c0f2899be6f3b1d9e44338
+
 
   let newUserFormBtn = document.getElementById('newUserFormBtn');
   newUserFormBtn.addEventListener('click', addCreateNewUserBtnListener);

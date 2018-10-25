@@ -135,6 +135,7 @@ class Controller {
     fetch("http://localhost:3000/api/v1/listings")
     .then(res => res.json())
     .then(json => {
+      $('#listingsContainer').removeClass('hidden')
       listings = json.map(listing => {
         let obj = new Listing(listing)
         renderListing(obj)

@@ -23,7 +23,6 @@ function renderCostume(obj)
 function formSubmitBtnListener(event) {
   form = event.target.parentNode
   console.log(form)
-  debugger
 }
 
 function renderCostumeForm() {
