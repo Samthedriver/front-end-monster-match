@@ -6,11 +6,18 @@ body {
    display: compact;
 }
 
+.costumeCard {
+    background-color: grey;
+    margin: 0px 10px 10px 10px;
+}
+
 img {
     border: 1px solid #ddd; /* Gray border */
     border-radius: 4px;  /* Rounded border */
     padding: 5px; /* Some padding */
     width: 150px; /* Set a small width */
+    heigth: auto;
+    align-content: center;
 }
 
 /* Add a hover effect (blue shadow) */

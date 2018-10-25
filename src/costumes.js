@@ -1,9 +1,10 @@
 function renderCostume(obj)
 {
   // Replaces the shorthand values of costume attributes with user-readable longhand
-  let bottomContainer = document.getElementById('bottomContainer');
+  let bottomContainer = document.getElementById('costumeRow');
 
   let card = document.createElement('card');
+  card.classList += 'costumeCard';
 
   let imageCard = document.createElement('img');
   imageCard.src = obj['img_url'];
