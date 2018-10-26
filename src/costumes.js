@@ -15,8 +15,9 @@ function renderCostume(obj)
   // cardBody.className = "card-body";
 
   let cardHeader = document.createElement('div');
-  cardHeader.className = "card-header";
   cardHeader.innerText = `${obj['name']}`;
+  cardHeader.classList += ' cardHeader'
+  // cardHeader.class.add('cardHeader')
 
   let infoCard = document.createElement('p');
   infoCard.className = 'card-text';
