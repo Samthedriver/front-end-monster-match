@@ -6,16 +6,16 @@ body {
    background-size: 100%;
    /* background-repeat:no-repeat; */
    display: compact;
-   font-family: northwood_highregular;
 }
 
 .costumeCard {
     background-image: linear-gradient(-60deg, darkslategrey, lightslategray, black);
     padding: 5px;
-    margin: 5px 10px 10px 10px;
+    margin: 15px 15px 15px 15px;
     border-radius: 5%;
     text-align: center;
     border-width: 1%;
+
 }
 
 img {
@@ -42,6 +42,10 @@ img:hover {
 
 .hidden {
   display: none;
+}
+
+#costumeRow {
+  justify-content: center;
 }
 
 #listingsContainer div.listing {

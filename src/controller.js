@@ -24,28 +24,34 @@ class Controller {
 
   // Confirm that the costume var is available within the fetch call
   static postCostume(event){
-    let costume = event
+    let children = event.target.parentElement.parentElement.children
+    debugger
 
-    fetch("http://localhost:3000/api/v1/costumes", {
+    return fetch("http://localhost:3000/api/v1/costumes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        "user_id": costume.user_id,
-        "gender": costume.gender,
-        "size": costume.size,
-        "category": costume.category,
-        "spookiness": costume.spookiness,
-        "theme": costume.theme,
-        "parts": costume.parts,
-        "img_url": costume.img_url,
-        "name": costume.name
+        "user_id": loggedInUser.id,
+        "gender": children[1].children[0].value,
+        "size": children[2].children[0].value,
+        "category": children[3].children[0].value,
+        "spookiness": children[4].children[0].value,
+        "theme": children[5].children[0].value,
+        "parts": children[6].children[0].value,
+        "img_url": children[7].children[0].value,
+        "name": children[0].children[0].value
       })
     })
     .then(res => res.json())
-    .then(json => console.log)
+    .then(json => {
+      let obj = new Costume(json)
+      obj.makeValuesReadable()
+      renderCostume(obj)
+      return obj
+    })
   }
 
   // static patchCostume(event){

@@ -41,15 +41,12 @@ function renderCostume(obj)
 
 function formSubmitBtnListener(event) {
   form = event.target.parentNode
-  console.log(form)
+  Controller.postCostume(event)
   displayOptionsContainer();
 }
 
 function renderCostumeForm() {
   event.preventDefault()
-
-  // How will user_id be passed in form?
-  // Shouldn't some of these inputs be dropdowns with pre-determined values? How to implement?
 
   let costumeFormDiv = $('#costumeFormContainer')[0] // The zero is here to return the DOM object within the returned jquery object
 
@@ -77,6 +74,7 @@ function renderCostumeForm() {
   let div1 = document.createElement('div')
   div1.class = "form-group"
   div1.className = "btn btn secondary"
+
   // CREATE NAME TEXT INPUT FIELD
   let name = document.createElement('input')
   name.id = "newCostumeName"
@@ -270,6 +268,7 @@ function renderCostumeForm() {
   div7.class = "form-group"
   div7.className = "btn btn secondary"
 
+
   // Adding optional values (whole feet legs chest head access)
   let partsOption1 = document.createElement('option')
   let partsOption2 = document.createElement('option')
@@ -302,7 +301,7 @@ function renderCostumeForm() {
   parts.appendChild(partsOption6)
   parts.appendChild(partsOption7)
 
-  div7.appendChild(spookiness)
+  div7.appendChild(parts)
   form.appendChild(div7)
 
 
