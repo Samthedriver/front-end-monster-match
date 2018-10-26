@@ -6,8 +6,8 @@ function renderListing(obj) {
   infoCard.classList.add('col')
 
   let costume = costumes.find((elem) => {return elem.id === obj.costume_id})
-  let owner = users.find((elem) => {return elem.id === obj.user_id})
-  infoCard.innerText = `Listing for ${costume.name}\nRenter: ${owner.name}\nDescription: ${obj.description}\nStatus: ${obj.status}`;
+  let owner = users.find((elem) => {return elem.id === costume.user_id})
+  infoCard.innerText = `Listing for ${costume.name}\nRenter: ${owner.username}\nDescription: ${obj.description}\nStatus: ${obj.status}`;
 
   rowDiv.appendChild(infoCard);
   listingsContainer.appendChild(rowDiv);
