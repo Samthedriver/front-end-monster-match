@@ -15,38 +15,33 @@ function renderListing(obj) {
 
 function renderRentalsToReturn()
 {
-      while(rentalReturnsContainer.firstChild)
-      {
-        rentalReturnsContainer.removeChild(rentalReturnsContainer.firstChild);
-      }
+  listings.forEach(listing =>
+  {
+    debugger
+    if(listing.user === loggedInUser)
+    {
+      let card = document.createElement('card');
+      card.classList += 'costumeCard';
 
-      let row = document.createElement('row');
+      let imageCard = document.createElement('img');
+      imageCard.src = obj['img_url'];
+      imageCard.className = "card-mg-top";
 
-      listings.forEach(listing =>
-        {
-          console.log("Im in the listings forEach of render Rentals");
+      let cardHeader = document.createElement('div');
+      cardHeader.className = "card-header";
+      cardHeader.innerText = `${obj['name']}`;
 
-          if(listing.user === loggedInUser)
-          {
-            let div = document.createElement('div');
-            div.innerHTML = `<div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                <a id=`${listing.id}Return` ref="#" class="card-link">Return Costume</a>
-              </div>
-            </div>`;
+      let infoCard = document.createElement('p');
+      infoCard.className = 'card-text';
+      infoCard.innerText = `Gender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
 
-            row.appendChild(div);
-            let link = document.getElementById(`${listing.id}Return`);
-            link.addEventListener('click', addReturnLinkListener);
-          }
-        });
-      rentalReturnsContainer.appendChild(row);
-}
+      card.appendChild(cardHeader);
+      card.appendChild(imageCard);
+      card.appendChild(infoCard);
 
-function addReturnLinkListener()
-{
-  console.log('click on return costume link');
+      rentalRetunsContainer.appendChild(card);
+    }
+
+  });
+
 }
