@@ -94,7 +94,7 @@ function addOptionsContainerListeners()
   viewListingsBtn.addEventListener('click', addViewListingsBtnListeners);
 
   let viewRentalsBtn = document.getElementById('viewRentalsBtn');
-  viewRentalsBtn.addEventListener('click', addViewRentalsBtnListeners);
+  viewRentalsBtn.addEventListener('click', addViewRentalsBtnListener);
 
 }
 
@@ -103,14 +103,13 @@ function addViewListingsBtnListeners()
   displayListingsContainer();
 }
 
-function addViewRentalsBtnListeners()
+function addViewRentalsBtnListener()
 {
   displayRentalReturnsContainer();
   if(rentalListingsRendered === false)
   {
     renderRentalsToReturn();
   }
-
 }
 
 function displayListingsContainer()

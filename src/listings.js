@@ -5,8 +5,8 @@ function renderListing(obj) {
   let infoCard = document.createElement('div');
   infoCard.classList.add('col')
 
-  let costume = costumes.find((elem) => {return elem.id === obj.costume_id})
-  let owner = users.find((elem) => {return elem.id === obj.user_id})
+  let costume = costumes.find(elem => {return elem.id === obj.costume_id})
+  let owner = users.find(elem => {return elem.id === obj.user_id})
   infoCard.innerText = `Listing for ${costume.name}\nRenter: ${owner.name}\nDescription: ${obj.description}\nStatus: ${obj.status}`;
 
   rowDiv.appendChild(infoCard);
@@ -15,41 +15,38 @@ function renderListing(obj) {
 
 function renderRentalsToReturn()
 {
-
-  // listings.forEach(listing =>
-  // {
-  //   if(listing.user === loggedInUser)
-  //   {
       while(rentalReturnsContainer.firstChild)
       {
         rentalReturnsContainer.removeChild(rentalReturnsContainer.firstChild);
       }
 
-      let card = document.createElement('card');
-      card.classList += 'costumeCard';
+      let row = document.createElement('row');
 
-      let imageCard = document.createElement('img');
-      // imageCard.src = obj['img_url'];
-      imageCard.src = "../images/spookyTrees.jpg";
-      imageCard.className = "card-mg-top";
+      listings.forEach(listing =>
+        {
+          console.log("Im in the listings forEach of render Rentals");
 
-      let cardHeader = document.createElement('div');
-      cardHeader.className = "card-header";
-      // cardHeader.innerText = `${obj['name']}`;
-      cardHeader.innerText = 'Object Name'
-      let infoCard = document.createElement('p');
-      infoCard.className = 'card-text';
-      // infoCard.innerText = `Gender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
-      infoCard.innerText = 'alkdjf;lkasdjflk;asjlk kjdfj adls; lkfmdklsfnlkasd flkasjfkl j'
+          if(listing.user === loggedInUser)
+          {
+            let div = document.createElement('div');
+            div.innerHTML = `<div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                <a id=`${listing.id}Return` ref="#" class="card-link">Return Costume</a>
+              </div>
+            </div>`;
 
-      card.appendChild(cardHeader);
-      card.appendChild(imageCard);
-      card.appendChild(infoCard);
+            row.appendChild(div);
+            let link = document.getElementById(`${listing.id}Return`);
+            link.addEventListener('click', addReturnLinkListener);
+          }
+        });
+      rentalReturnsContainer.appendChild(row);
+}
 
-      rentalReturnsContainer.appendChild(card);
-    // }
-  //
-  // });
-//
-// }
+function addReturnLinkListener()
+{
+  console.log('click on return costume link');
 }
