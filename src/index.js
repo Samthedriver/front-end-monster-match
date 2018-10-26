@@ -6,6 +6,7 @@ let optionsContainer = {};
 let costumeFormContainer = {};
 let listingsContainer = {};
 let rentalReturnsContainer = {};
+let userCostumesContainer = {};
 let rentalListingsRendered = false;
 var users
 var costumes
@@ -29,6 +30,7 @@ function init()
   costumeFormContainer = document.getElementById('costumeFormContainer');
   listingsContainer = document.getElementById('listingsContainer');
   rentalReturnsContainer = document.getElementById('rentalReturnsContainer');
+  userCostumesContainer = document.getElementById('userCostumesContainer');
 
   welcomeContainer.style.display = 'none';
   loginContainer.style.display = 'none';
@@ -37,6 +39,7 @@ function init()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 
   addWelcomeContainerListeners();
   addOptionsContainerListeners();
@@ -96,6 +99,27 @@ function addOptionsContainerListeners()
   let viewRentalsBtn = document.getElementById('viewRentalsBtn');
   viewRentalsBtn.addEventListener('click', addViewRentalsBtnListener);
 
+  let viewUserCostumesBtn = document.getElementById('viewCostumeBtn');
+  viewUserCostumesBtn.addEventListener('click', addViewUserCostumeBtnListener);
+
+}
+
+function addViewUserCostumeBtnListener()
+{
+  displayUserCostumes()
+  renderUserCostumes()
+}
+
+function displayUserCostumes()
+{
+  welcomeContainer.style.display = 'none';
+  loginContainer.style.display = 'none';
+  newUserContainer.style.display = 'none';
+  optionsContainer.style.display = 'none';
+  costumeFormContainer.style.display = 'none';
+  listingsContainer.style.display = 'none';
+  rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'block';
 }
 
 function addViewListingsBtnListeners()
@@ -121,6 +145,7 @@ function displayListingsContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'block';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }
 
 function displayRentalReturnsContainer()
@@ -132,6 +157,7 @@ function displayRentalReturnsContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'block';
+  userCostumesContainer.style.display = 'none';
 }
 
 function displayOptionsContainer()
@@ -143,6 +169,7 @@ function displayOptionsContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }
 
 function addWelcomeContainerListeners()
@@ -172,6 +199,7 @@ function displayCostumeFormContainer()
   costumeFormContainer.style.display = 'block';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }
 
 function displayNewUserContainer()
@@ -183,6 +211,7 @@ function displayNewUserContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }
 
 function displayLoginContainer()
@@ -194,6 +223,7 @@ function displayLoginContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }
 
 function displayWelcomeContainer()
@@ -205,4 +235,5 @@ function displayWelcomeContainer()
   costumeFormContainer.style.display = 'none';
   listingsContainer.style.display = 'none';
   rentalReturnsContainer.style.display = 'none';
+  userCostumesContainer.style.display = 'none';
 }

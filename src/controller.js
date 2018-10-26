@@ -26,7 +26,6 @@ class Controller {
   static postCostume(event){
     let children = event.target.parentElement.parentElement.children
 
-    debugger
     return fetch("http://localhost:3000/api/v1/costumes", {
       method: "POST",
       headers: {

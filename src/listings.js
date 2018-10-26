@@ -23,7 +23,6 @@ function renderRentalsToReturn()
 {
   listings.forEach(listing =>
   {
-    debugger
     if(listing.user === loggedInUser)
     {
       let card = document.createElement('card');

@@ -27,6 +27,7 @@ body {
   font-size: 3em;
   font-family: northwood;
   margin: 0 auto;
+  color: white;
 }
 
 #listingsRow {
@@ -38,6 +39,7 @@ body {
   font-family: northwood;
   border-width: 1%;
   background-color: black;
+  color: white;
 }
 
 .listingCard {

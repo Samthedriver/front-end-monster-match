@@ -324,3 +324,41 @@ function renderCostumeForm() {
   form.appendChild(div9)
 
 }
+
+function renderUserCostumes()
+{
+  console.log("im in render user costumes");
+  costumes.forEach(costume =>
+    {
+      if(loggedInUser['id'] === costume['user_id'])
+      {
+        renderUserCostume(costume)
+      }
+    })
+}
+
+function renderUserCostume(obj)
+{
+  let bottomContainer = document.getElementById('userCostumesRow');
+  let card = document.createElement('card');
+  card.classList += 'costumeCard';
+
+  let imageCard = document.createElement('img');
+  imageCard.src = obj['img_url'];
+  imageCard.className = "card-mg-top";
+
+  let cardHeader = document.createElement('div');
+  cardHeader.innerText = `${obj['name']}`;
+  cardHeader.classList += ' cardHeader'
+  // cardHeader.class.add('cardHeader')
+
+  let infoCard = document.createElement('p');
+  infoCard.className = 'card-text';
+  infoCard.innerText = `Gender: ${obj['gender']}\nSize: ${obj['size']}\nBody Part: ${obj['parts']}\nCategory: ${obj['category']}\nTheme: ${obj['theme']}\nSpookiness: ${obj['spookiness']}`;
+
+  card.appendChild(cardHeader);
+  card.appendChild(imageCard);
+  card.appendChild(infoCard);
+
+  bottomContainer.appendChild(card);
+}
