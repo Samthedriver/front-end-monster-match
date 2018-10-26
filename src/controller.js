@@ -120,7 +120,6 @@ class Controller {
       "lastname": formFields[1].value,
       "username": formFields[2].value
     }
-
     fetch('http://localhost:3000/api/v1/users', {
       method: "POST",
       headers: {
@@ -134,7 +133,13 @@ class Controller {
       })
     })
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => {
+      debugger
+      users.push(new User(json))
+      loggedInUser.firstname = json.firstname
+      loggedInUser.lastname = json.lastname
+      loggedInUser.username = json.username
+    })
   }
 
   static getAllListings() {
