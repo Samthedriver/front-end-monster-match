@@ -58,11 +58,12 @@ function addNewUserContainerListeners()
   newUserFormBtn.addEventListener('click', addNewUserFormBtnListener);
 }
 
-function addNewUserFormBtnListener()
+function addNewUserFormBtnListener(event)
 {
   event.preventDefault();
   //create new user();
   //logged in screen - optionsContainer view
+  Controller.postUser(event)
   displayOptionsContainer();
 }
 
