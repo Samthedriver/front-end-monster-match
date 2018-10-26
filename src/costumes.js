@@ -26,8 +26,7 @@ function renderCostume(obj)
 }
 
 function formSubmitBtnListener(event) {
-  form = event.target.parentNode
-  console.log(form)
+  Controller.postCostume(event)
   displayOptionsContainer();
 }
 
@@ -288,7 +287,7 @@ function renderCostumeForm() {
   parts.appendChild(partsOption6)
   parts.appendChild(partsOption7)
 
-  div7.appendChild(spookiness)
+  div7.appendChild(parts)
   form.appendChild(div7)
 
 

@@ -1,17 +1,22 @@
 function renderListing(obj) {
-  let listingsContainer = document.querySelector('div#listingsContainer')
-  let rowDiv = document.createElement('row');
-
-  let infoCard = document.createElement('div');
-  infoCard.classList.add('col')
-
   let costume = costumes.find((elem) => {return elem.id === obj.costume_id})
   let owner = users.find((elem) => {return elem.id === costume.user_id})
-  infoCard.innerText = `Listing for ${costume.name}\nRenter: ${owner.username}\nDescription: ${obj.description}\nStatus: ${obj.status}`;
 
+  let listingsRow = document.querySelector('#listingsRow')
 
-  rowDiv.appendChild(infoCard);
-  listingsContainer.appendChild(rowDiv);
+  let infoCard = document.createElement('card');
+  infoCard.classList.add('listingCard')
+
+  let listingHeader = document.createElement('div')
+  listingHeader.classList.add('cardHeader')
+  listingHeader.innerText = `Rent ${costume.name}`
+  infoCard.appendChild(listingHeader)
+
+  let cardText = document.createElement('p')
+  cardText.innerText = `\nRenter: ${owner.username}\n\nDescription: ${obj.description}\n\nStatus: ${obj.status}`;
+  infoCard.appendChild(cardText)
+
+  listingsRow.appendChild(infoCard)
 }
 
 function renderRentalsToReturn()

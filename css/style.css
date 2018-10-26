@@ -20,7 +20,17 @@ body {
    background-image: url("../images/spookyTrees.jpg");
    background-size: 100%;
    /* background-repeat:no-repeat; */
-   display: compact;
+   text-align: center;
+}
+
+.listingsHeader {
+  font-size: 3em;
+  font-family: northwood;
+  margin: 0 auto;
+}
+
+#listingsRow {
+  justify-content: center;
 }
 
 .cardHeader {
@@ -28,6 +38,18 @@ body {
   font-family: northwood;
   border-width: 1%;
   background-color: black;
+}
+
+.listingCard {
+    background-image: linear-gradient(-60deg, darkslategrey, lightslategray, black);
+    padding: 5px;
+    margin: 15px 15px 15px 15px;
+    border-radius: 5%;
+    text-align: center;
+    border-width: 1%;
+    font-size: 1.2em;
+    font-family: fantasy;
+    width: 300px;
 }
 
 .costumeCard {

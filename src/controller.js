@@ -25,8 +25,8 @@ class Controller {
   // Confirm that the costume var is available within the fetch call
   static postCostume(event){
     let children = event.target.parentElement.parentElement.children
-    debugger
 
+    debugger
     return fetch("http://localhost:3000/api/v1/costumes", {
       method: "POST",
       headers: {
