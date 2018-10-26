@@ -134,7 +134,6 @@ class Controller {
     })
     .then(res => res.json())
     .then(json => {
-      debugger
       users.push(new User(json))
       loggedInUser.firstname = json.firstname
       loggedInUser.lastname = json.lastname
@@ -148,6 +147,7 @@ class Controller {
     .then(json => {
       $('#listingsContainer').removeClass('hidden')
       listings = json.map(listing => {
+        console.log(listing)
         let obj = new Listing(listing)
         renderListing(obj)
         return obj

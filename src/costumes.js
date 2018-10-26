@@ -1,6 +1,5 @@
 function renderCostume(obj)
 {
-  // Replaces the shorthand values of costume attributes with user-readable longhand
   let bottomContainer = document.getElementById('costumeRow');
 
   let card = document.createElement('card');
@@ -9,10 +8,6 @@ function renderCostume(obj)
   let imageCard = document.createElement('img');
   imageCard.src = obj['img_url'];
   imageCard.className = "card-mg-top";
-
-
-  // let cardBody = document.createElement('div');
-  // cardBody.className = "card-body";
 
   let cardHeader = document.createElement('div');
   cardHeader.innerText = `${obj['name']}`;
@@ -28,26 +23,19 @@ function renderCostume(obj)
   card.appendChild(infoCard);
 
   bottomContainer.appendChild(card);
-
-//   <div class="card" style="width: 18rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div>
-// </div>
-
 }
 
 function formSubmitBtnListener(event) {
   form = event.target.parentNode
-  Controller.postCostume(event)
+  console.log(form)
   displayOptionsContainer();
 }
 
 function renderCostumeForm() {
   event.preventDefault()
+
+  // How will user_id be passed in form?
+  // Shouldn't some of these inputs be dropdowns with pre-determined values? How to implement?
 
   let costumeFormDiv = $('#costumeFormContainer')[0] // The zero is here to return the DOM object within the returned jquery object
 
@@ -75,7 +63,6 @@ function renderCostumeForm() {
   let div1 = document.createElement('div')
   div1.class = "form-group"
   div1.className = "btn btn secondary"
-
   // CREATE NAME TEXT INPUT FIELD
   let name = document.createElement('input')
   name.id = "newCostumeName"
@@ -269,7 +256,6 @@ function renderCostumeForm() {
   div7.class = "form-group"
   div7.className = "btn btn secondary"
 
-
   // Adding optional values (whole feet legs chest head access)
   let partsOption1 = document.createElement('option')
   let partsOption2 = document.createElement('option')
@@ -302,7 +288,7 @@ function renderCostumeForm() {
   parts.appendChild(partsOption6)
   parts.appendChild(partsOption7)
 
-  div7.appendChild(parts)
+  div7.appendChild(spookiness)
   form.appendChild(div7)
 
 

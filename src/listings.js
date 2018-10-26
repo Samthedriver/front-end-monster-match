@@ -9,6 +9,7 @@ function renderListing(obj) {
   let owner = users.find((elem) => {return elem.id === costume.user_id})
   infoCard.innerText = `Listing for ${costume.name}\nRenter: ${owner.username}\nDescription: ${obj.description}\nStatus: ${obj.status}`;
 
+
   rowDiv.appendChild(infoCard);
   listingsContainer.appendChild(rowDiv);
 }
