@@ -29,6 +29,7 @@ function addLogoutBtnListener()
 {
   event.preventDefault();
   loggedInUser = {};
+  rentalListingsRendered = false;
   console.log("in logout listener");
   displayWelcomeContainer();
 }

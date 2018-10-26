@@ -6,9 +6,11 @@ let optionsContainer = {};
 let costumeFormContainer = {};
 let listingsContainer = {};
 let rentalReturnsContainer = {};
+let rentalListingsRendered = false;
 var users
 var costumes
 var listings
+
 
 
 
@@ -103,6 +105,11 @@ function addViewListingsBtnListeners()
 function addViewRentalsBtnListeners()
 {
   displayRentalReturnsContainer();
+  if(rentalListingsRendered === false)
+  {
+    renderRentalsToReturn();
+  }
+
 }
 
 function displayListingsContainer()
